@@ -12,8 +12,7 @@ USER $NB_USER
 # Currently getting a conda warining about an inconsistecy involving
 # conda-forge/linux-64::matplotlib==3.0.3=py37_1
 
-RUN conda install -y \
-      'xeus-cling=0.5.1' \
+RUN conda install -y 'xeus-cling=0.5.1'
 
 # note we are running the npm installed by conda, which is
 # owned by $NB_USER, but located in $CONDA_DIR, not in /home/$NB_USER.
