@@ -27,6 +27,7 @@ RUN npm install -g chalk \
       moment \
       ramda \
       request \
+      js-beautify \
       webpack webpack-cli && \
     npm install -g ijavascript && \
     ijsinstall && \
@@ -44,11 +45,14 @@ RUN mkdir /ijava && chown $NB_UID:$NB_GID /ijava
 #
 USER $NB_USER
 RUN jupyter kernelspec list && \
+    jupyter nbextension list && \ 
+    juptyer nbextension enable rise/main && \
     cd /ijava && \
     wget -q https://github.com/SpencerPark/IJava/releases/download/v1.3.0/ijava-1.3.0.zip && \
     unzip ijava-1.3.0.zip && \
     python3 install.py --user && \
-    jupyter kernelspec list
+    jupyter kernelspec list && \
+    jutpyer nbextension list
 
 ENV JDK_JAVA_OPTIONS -Xcomp -Xms2g -Xmx2g -XX:-PreserveFramePointer
 USER $NB_USER
