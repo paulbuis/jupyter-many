@@ -74,4 +74,5 @@ RUN jupyter kernelspec list && \
     jupyter nbextension list
 
 ENV JDK_JAVA_OPTIONS -Xcomp -Xms2g -Xmx2g -XX:-PreserveFramePointer
+ENV NODE_PATH="/opt/conda/lib/node_modules/"
 USER $NB_USER
